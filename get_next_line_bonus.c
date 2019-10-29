@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_next_line.c                                  .::    .:/ .      .::   */
+/*   get_next_line_bonus.c                            .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: jgambard <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: aalleman <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/13 12:13:38 by jgambard     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 15:20:55 by aalleman    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/29 15:22:11 by aalleman     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 15:22:12 by aalleman    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /*
 ** Main function. Fills line and returns 1 (or 0 on EOF or -1 on error).

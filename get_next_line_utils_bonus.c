@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   get_next_line_utils.c                            .::    .:/ .      .::   */
+/*   get_next_line_utils_bonus.c                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: jgambard <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: aalleman <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/13 12:14:08 by jgambard     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 15:20:21 by aalleman    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/29 15:22:27 by aalleman     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/29 15:22:30 by aalleman    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /*
 ** Creates a new fd_list element associated to the given fd,
