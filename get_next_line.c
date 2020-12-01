@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   get_next_line.c                                  .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: jgambard <marvin@le-101.fr>                +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/13 12:13:38 by jgambard     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 15:20:55 by aalleman    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/13 12:13:38 by jgambard          #+#    #+#             */
+/*   Updated: 2020/12/01 07:25:38 by user42           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include "get_next_line.h"
 
@@ -82,11 +82,20 @@ int					fill_buffers(int fd, t_fd_list **begin)
 	int			nl;
 
 	while ((ret = read(fd, (*begin)->b_list->b, BUFFER_SIZE)) == BUFFER_SIZE
-	&& ret && (nl = delta_to_nl((*begin)->b_list)) == -1)
+	&& ret)
 	{
+		if ((nl = delta_to_nl((*begin)->b_list)) == -1)
+		{
+			
 		(*begin)->b_list->b[ret] = '\0';
 		if (!add_b_list(*begin))
 			return (remove_fd(begin, 1));
+		}
+		else
+		{
+			break;
+		}
+		
 	}
 	if (ret < 0)
 	{

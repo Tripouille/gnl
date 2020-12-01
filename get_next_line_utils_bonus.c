@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   get_next_line_utils_bonus.c                      .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: aalleman <marvin@le-101.fr>                +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/29 15:22:27 by aalleman     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 15:22:30 by aalleman    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/29 15:22:27 by aalleman          #+#    #+#             */
+/*   Updated: 2020/12/01 11:27:59 by user42           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include "get_next_line_bonus.h"
 
@@ -87,10 +87,13 @@ int					delta_to_nl(t_b_list *b_list)
 	int		i;
 
 	i = 0;
-	while (b_list->b[b_list->start + i]
-	&& b_list->b[b_list->start + i] != '\n')
+	while (b_list->start + i < BUFFER_SIZE && b_list->b[b_list->start + i])
+	{
+		if (b_list->b[b_list->start + i] == '\n')
+			return (i);
 		i++;
-	return (b_list->b[b_list->start + i] == '\n' ? i : -1);
+	}
+	return (-1);
 }
 
 int					str_len(const char *str)

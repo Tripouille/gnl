@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   get_next_line_utils.c                            .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: jgambard <marvin@le-101.fr>                +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/13 12:14:08 by jgambard     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 15:20:21 by aalleman    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/13 12:14:08 by jgambard          #+#    #+#             */
+/*   Updated: 2020/12/01 11:28:02 by user42           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include "get_next_line.h"
 
@@ -46,6 +46,7 @@ int					add_b_list(t_fd_list *fd_list)
 	if (!(new = malloc(sizeof(*new))))
 		return (0);
 	new->b[0] = '\0';
+	bzero(new->b, BUFFER_SIZE);
 	new->start = 0;
 	new->next = fd_list->b_list;
 	fd_list->b_list = new;
@@ -87,10 +88,13 @@ int					delta_to_nl(t_b_list *b_list)
 	int		i;
 
 	i = 0;
-	while (b_list->b[b_list->start + i]
-	&& b_list->b[b_list->start + i] != '\n')
+	while (b_list->start + i < BUFFER_SIZE && b_list->b[b_list->start + i])
+	{
+		if (b_list->b[b_list->start + i] == '\n')
+			return (i);
 		i++;
-	return (b_list->b[b_list->start + i] == '\n' ? i : -1);
+	}
+	return (-1);
 }
 
 int					str_len(const char *str)
